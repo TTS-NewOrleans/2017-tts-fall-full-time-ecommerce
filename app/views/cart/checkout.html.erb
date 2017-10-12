@@ -1,2 +1,12 @@
-<h1>Cart#checkout</h1>
-<p>Find me in app/views/cart/checkout.html.erb</p>
+<h2>Thanks for shopping with us!</h2>
+<p>Let's review your order:</p>
+
+<% @order.order_items.each do |key, value| %>
+  <ul>
+    <li><%= Product.find(key).name %>, <%= value %></li>
+  </ul>
+<% end %>
+
+<p>
+  <strong>Order Total: </strong><%= number_to_currency(@order.grand_total) %>
+</p>
