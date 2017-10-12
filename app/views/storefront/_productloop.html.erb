@@ -1,0 +1,33 @@
+<% @products.each do |product| %>
+  <div class="col-md-4">
+    <div class="well center-it">
+      <p><%= image_tag product.image.url(:thumb) %></p>
+      <h3><%= link_to product.name, product %></h3>
+      <p><%= number_to_currency(product.price) %></p>
+      <p>
+        <a href="#" data-toggle="modal" data-target="#myModal_<%= product.id %>" class="btn btn-default">
+          <span class="glyphicon glyphicon-plus"></span> Quick Info
+        </a>
+      </p>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal_<%= product.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="modal-body">
+          <p><%= image_tag product.image.url(:medium), class: 'storefront-pics' %></p>
+          <h3><%= link_to product.name, product %></h3>
+          <p><%= number_to_currency(product.price) %></p>
+          <p>made by <%= product.brand %></p>
+        </div>
+        <div class="modal-footer">
+
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
