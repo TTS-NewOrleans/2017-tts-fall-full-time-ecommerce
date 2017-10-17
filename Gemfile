@@ -52,6 +52,12 @@ gem 'paperclip'
 # Other stuff
 gem 'pry-rails'
 
+# Get PAID!!!
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
+# Secrets
+gem 'figaro'
+
 
 
 group :development, :test do
